@@ -68,7 +68,7 @@ try:
             EC.presence_of_element_located((By.XPATH,TWEETBUTTON_XPath))
         )
         element.click()
-        print('tweeted')
+        print('-tweeted')
         
 except:
     print('-Problem tweeting.')
