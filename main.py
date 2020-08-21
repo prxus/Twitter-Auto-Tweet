@@ -45,26 +45,29 @@ try:
     )
     element.click()
     print('-Clicked Log in Button')
-    element =   WebDriverWait(driver,10).until(
-        EC.presence_of_element_located((By.XPATH,PHONEFORM_XPath))
-    )
-    element.send_keys(os.environ.get('PHONE_NUMBER'))
-    print('-Filled in phone number')
-    element =   WebDriverWait(driver,10).until(
-        EC.presence_of_element_located((By.XPATH,PHONEBUTTON_XPath))
-    )
-    element.click()
-    print('-Phone button pressed')
-    print('-Logged in')
-    element =   WebDriverWait(driver,10).until(
-        EC.presence_of_element_located((By.XPATH,TWEETBOX_XPath))
-    )
-    element.send_keys(os.environ.get('TWEET_STRING'))
-    element =   WebDriverWait(driver,10).until(
-        EC.presence_of_element_located((By.XPATH,TWEETBUTTON_XPath))
-    )
-    element.click()
+    try:
+        element =   WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.XPATH,PHONEFORM_XPath))
+        )
+        element.send_keys(os.environ.get('PHONE_NUMBER'))
+        print('-Filled in phone number')
+        element =   WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.XPATH,PHONEBUTTON_XPath))
+        )
+        element.click()
+        print('-Phone button pressed')
+    finally:
+        print('-Logged in')
+        element =   WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.XPATH,TWEETBOX_XPath))
+        )
+        element.send_keys(os.environ.get('TWEET_STRING'))
+        element =   WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.XPATH,TWEETBUTTON_XPath))
+        )
+        element.click()
 except:
     print('-Problem tweeting.')
 finally:
     driver.quit()
+
