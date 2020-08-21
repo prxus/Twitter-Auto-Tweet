@@ -25,6 +25,7 @@ op.add_argument('--disable-dev-sh-usage')
 driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
 
 driver.get('https://twitter.com/')
+print('-Loaded Twitter')
 driver.find_element_by_xpath(INIT_LOGIN_XPath).click()
 try:
     element =   WebDriverWait(driver,10).until(
@@ -42,13 +43,13 @@ try:
     element =   WebDriverWait(driver,10).until(
         EC.presence_of_element_located((By.XPATH,TWEETBOX_XPath))
     )
+    print('-Logged in')
     element.send_keys(os.environ.get('TWEET_STRING'))
     element =   WebDriverWait(driver,10).until(
         EC.presence_of_element_located((By.XPATH,TWEETBUTTON_XPath))
     )
     element.click()
-    driver.refresh()
 except:
-    print('Problem tweeting.')
+    print('-Problem tweeting.')
 finally:
     driver.quit()
