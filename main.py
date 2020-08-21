@@ -23,7 +23,6 @@ op.add_argument('--headless')
 op.add_argument('--no-sandbox')
 op.add_argument('--disable-dev-sh-usage')
 
-# driver = webdriver.Chrome('drivers\chromedriver.exe')
 driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
 
 driver.get('https://twitter.com/')
@@ -45,6 +44,7 @@ try:
     )
     element.click()
     print('-Clicked Log in Button')
+    
     try:
         element =   WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.XPATH,PHONEFORM_XPath))
@@ -56,6 +56,8 @@ try:
         )
         element.click()
         print('-Phone button pressed')
+    except:
+        print('-phone number not required')
     finally:
         print('-Logged in')
         element =   WebDriverWait(driver,10).until(
@@ -66,6 +68,8 @@ try:
             EC.presence_of_element_located((By.XPATH,TWEETBUTTON_XPath))
         )
         element.click()
+        print('tweeted')
+        
 except:
     print('-Problem tweeting.')
 finally:
