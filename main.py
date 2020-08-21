@@ -32,10 +32,12 @@ try:
         EC.presence_of_element_located((By.XPATH,EMAIL_XPath))
     )
     element.send_keys(os.environ.get('EMAIL'))
+    print('-Filled in Email')
     element =   WebDriverWait(driver,10).until(
         EC.presence_of_element_located((By.XPATH,PASSWORD_XPath))
     )
     element.send_keys(os.environ.get('PASSWORD'))
+    print('-Filled in Password')
     element =   WebDriverWait(driver,10).until(
         EC.presence_of_element_located((By.XPATH,LOGIN_XPath))
     )
