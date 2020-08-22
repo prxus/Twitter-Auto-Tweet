@@ -21,13 +21,13 @@ Type the command in terminal
      
       
       1. Add buildpacks
-            ![Buildpacks](images_readme\buildpacks.png)
+            ![buildpacks](https://user-images.githubusercontent.com/64152220/90945771-a33b0d80-e459-11ea-951b-b7a1cd6f1eec.png)
           - Python
           - https://github.com/heroku/heroku-buildpack-google-chrome 
           -  https://github.com/heroku/heroku-buildpack-chromedriver
 
        1. Setup config vars  
-            ![Buildpacks](images_readme\configvars.jpg)
+            ![configvars](https://user-images.githubusercontent.com/64152220/90945783-b057fc80-e459-11ea-8961-3df239b7e3a8.jpg)
         
             KEY | VALUE
             ------------ | -------------
@@ -54,7 +54,7 @@ Type the command in terminal
 1. In Heroku dashboard, go to ```Deploy``` tab.
 1. Go to deployment method and click on Heroku Git.
 
-    ![deploy](images_readme\deploy.png)
+    ![deploy](https://user-images.githubusercontent.com/64152220/90945793-bea61880-e459-11ea-926a-2a5985643d3d.png)
 1. Follow the guides displayed there. <br>
 **Note** : The guide attached on the image might be different with what displayed to you on the website. It's because you will need to initialize git first.
         
@@ -74,7 +74,7 @@ In the project directory terminal, run command:
 1. Navigate the ```Heroku Scheduler``` and click ```Add Job```.
 1. Insert as following
 
-    ![scheduler](images_readme\scheduler.png)
+    ![scheduler](https://user-images.githubusercontent.com/64152220/90945804-cd8ccb00-e459-11ea-8b84-334e271da4b2.png)
 
     - In the ```Run Command```, Insert
         > heroku run python main.py
